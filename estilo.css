@@ -1,0 +1,226 @@
+/* Estilo geral do corpo */
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    background: url('download.jfif') no-repeat center center fixed; /* Substitua 'download.jfif' pelo caminho da sua imagem */
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    filter: brightness(0.9) contrast(1.1);
+    color: #000000;
+    overflow-x: hidden;
+}
+
+/* Animação de gradiente */
+@keyframes gradientAnimation {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* Estilo do cabeçalho */
+header {
+    background: linear-gradient(90deg, #baaac3, #8e24aa, #bf9ec5);
+    color: white;
+    padding: 1rem 0;
+    text-align: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    animation: fadeIn 2s ease-in-out;
+    position: relative;
+}
+
+/* Animação de fade-in */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+/* Estilo do conteúdo principal */
+main {
+    padding: 2rem;
+    animation: slideIn 1.5s ease-in-out;
+}
+
+/* Animação de slide-in */
+@keyframes slideIn {
+    from { transform: translateY(50px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+
+/* Estilo da seção .convite */
+.convite {
+    background: rgba(255, 255, 255, 0.344);
+    backdrop-filter: blur(10px);
+    padding: 1.5rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    max-width: 600px;
+    margin: 0 auto;
+    border: 2px solid #9f05ff1f;
+    animation: pulse 3s infinite;
+    color: #000000;
+}
+
+/* Estilo da div .texto */
+.texto {
+    background: url('mj.png') no-repeat center center;
+    background-size: contain;
+    padding: 1.5rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    max-width: 600px;
+    margin: 0 auto;
+    border: 2px solid #ffffff00;
+    animation: pulse infinite;
+    color: #32096400;
+}
+
+/* Animação de pulsação */
+@keyframes pulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+}
+
+/* Estilo do rodapé */
+footer {
+    text-align: center;
+    margin-top: 2rem;
+    font-style: italic;
+    color: #ffffff;
+    animation: fadeIn 2s ease-in-out;
+}
+
+/* Estilo das bolhas flutuantes */
+.bubble {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background-color: rgba(255, 255, 255, 0.5);
+    border-radius: 50%;
+    animation: float 10s infinite ease-in-out;
+    pointer-events: none;
+}
+
+/* Variáveis CSS */
+:root {
+    --card-height: 300px;
+    --card-width: calc(var(--card-height) / 1.5);
+}
+
+/* Reset de box-sizing */
+* {
+    box-sizing: border-box;
+}
+
+/* Estilo do card */
+.card {
+    width: var(--card-width);
+    height: var(--card-height);
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0 36px;
+    perspective: 2500px;
+    margin: 0 auto;
+}
+
+.cover-image {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    display: block;
+}
+
+.wrapper {
+    transition: all 0.5s;
+    position: absolute;
+    width: 100%;
+    z-index: -1;
+}
+
+.card:hover .wrapper {
+    transform: perspective(900px) translateY(-5%) rotateX(25deg) translateZ(0);
+    box-shadow: 2px 35px 32px -8px rgba(0, 0, 0, 0.75);
+}
+
+.wrapper::before,
+.wrapper::after {
+    content: "";
+    opacity: 0;
+    width: 100%;
+    height: 80px;
+    transition: all 0.5s;
+    position: absolute;
+    left: 0;
+}
+
+.wrapper::before {
+    top: 0;
+    height: 100%;
+    background-image: linear-gradient(
+        to top,
+        transparent 46%,
+        rgba(12, 13, 19, 0.5) 68%,
+        rgba(12, 13, 19) 97%
+    );
+}
+
+.wrapper::after {
+    bottom: 0;
+    opacity: 1;
+    background-image: linear-gradient(
+        to bottom,
+        transparent 46%,
+        rgba(12, 13, 19, 0.5) 68%,
+        rgba(12, 13, 19) 97%
+    );
+}
+
+.card:hover .wrapper::before,
+.card:hover .wrapper::after {
+    opacity: 1;
+}
+
+.card:hover .wrapper::after {
+    height: 120px;
+}
+
+.title {
+    width: 100%;
+    transition: transform 0.5s;
+}
+
+.card:hover .title {
+    transform: translate3d(0%, -50px, 100px);
+}
+
+.character {
+    width: 100%;
+    opacity: 0;
+    transition: all 0.5s;
+    position: absolute;
+    z-index: -1;
+}
+
+.card:hover .character {
+    opacity: 1;
+    transform: translate3d(0%, -30%, 100px);
+}
+
+/* Animação de flutuação */
+@keyframes float {
+    0% {
+        transform: translateY(100vh) translateX(0);
+        opacity: 0;
+    }
+    50% {
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(-100vh) translateX(50px);
+        opacity: 0;
+    }
+}
