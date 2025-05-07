@@ -1,46 +1,152 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-<head> 
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Convite para Celebração</title>
-    <link rel="stylesheet" href="estilo.css">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Resgatados - Grupo de Jovens</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Roboto', sans-serif;
+      background-color: #0b0f2a;
+      color: #ffffff;
+      background-image: url('78 Papel de Parede de Jesus – Personalize suas telas com fé.jpeg');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+
+    .overlay {
+      background-color: rgba(0, 0, 0, 0.7);
+      padding: 30px;
+      border-radius: 20px;
+      max-width: 700px;
+      width: 100%;
+      text-align: center;
+    }
+
+    h1 {
+      font-size: 2.5rem;
+      color: #FFD700;
+      margin-bottom: 10px;
+    }
+
+    h2 {
+      font-size: 1.3rem;
+      color: #ccc;
+      margin-bottom: 25px;
+    }
+
+    p {
+      font-size: 1rem;
+      line-height: 1.6;
+      margin-bottom: 20px;
+    }
+
+    .highlight {
+      color: #00BFFF;
+      font-weight: bold;
+    }
+
+    button {
+      background-color: #FFD700;
+      color: #0b0f2a;
+      font-weight: bold;
+      border: none;
+      padding: 12px 24px;
+      border-radius: 30px;
+      cursor: pointer;
+      font-size: 1rem;
+      transition: background 0.3s ease;
+      margin: 10px;
+    }
+
+    button:hover {
+      background-color: #e6c200;
+    }
+
+    #imagemRevelada {
+      display: none;
+      margin-top: 20px;
+      max-width: 100%;
+      border-radius: 10px;
+      box-shadow: 0 0 15px rgba(255, 255, 255, 0.3);
+    }
+
+    footer {
+      margin-top: 30px;
+      font-size: 0.9rem;
+      color: #bbb;
+      text-align: center;
+      padding: 10px;
+    }
+
+    @media (max-width: 600px) {
+      .overlay {
+        padding: 20px;
+      }
+
+      h1 {
+        font-size: 2rem;
+      }
+
+      h2 {
+        font-size: 1.1rem;
+      }
+
+      p {
+        font-size: 0.95rem;
+      }
+
+      button {
+        width: 100%;
+        font-size: 1rem;
+        padding: 12px;
+      }
+    }
+  </style>
 </head>
 <body>
-    <header>
-        <h1>A Paz de Jesus e o Amor de Maria</h1>
-    </header>
-    <main>
-        <section class="convite">
-            <p>É com grande alegria que convido você para a <strong>Celebração de Lava Pés</strong> e logo após a <strong>Vigília da Paixão</strong>, que acontecerá nessa quinta-feira, na Comunidade Nossa Senhora Aparecida.</p>
-            <p>Será um momento especial para nos conectar com Deus, fortalecer nossa fé e nos unir como comunidade. Vamos nos reunir para celebrar a presença de Deus em nossas vidas e buscar inspiração para enfrentar os desafios do dia a dia.</p>
-            <p>Contamos com a sua presença e a sua participação ativa nessa Celebração. Que Deus nos abençoe e nos guie em nossos caminhos.</p>
-            <div class="texto"></div>
-        </section>
-        <footer>
-            <p>Segue cronograma abaixo, a um clique de distância!</p>
-        </footer>
-        <footer>
-            <p></p>
-        </footer>
-        <div class="container">
-            <!-- Conteúdo adicional pode ser adicionado aqui -->
-        </div>
+  <div class="overlay">
+    <h1>Resgatados</h1>
+    <h2>"Lançai a rede" - João 21, 1-14</h2>
+    <p>Ao saltarem em terra, viram umas brasas preparadas e um peixe em cima delas,<br>
+       e pão. Disse-lhes Jesus: Trazei aqui alguns dos peixes que agora apanhastes</p>
+    <p>Venha viver uma noite <span class="highlight">inesquecível</span> com Deus e outros jovens como você!</p>
+    <p>📅 <strong>Quinta-feira às 20h00</strong><br>
+       📍 <strong>Comunidade Nossa Senhora Aparecida</strong><br>
+       Avenida C, 212 - Setor Água Branca</p>
+    <p>🎤 Uma <span class="highlight">pregadora abençoada</span> estará conosco compartilhando a Palavra!</p>
+    <button onclick="confirmarPresenca()">Confirmar Presença</button>
+    <button onclick="mostrarImagem()">Ver Imagem Especial</button>
+    <img id="imagemRevelada" src="C:\Users\rafae\Documents\pasta do cria\mj.jpeg" alt="Imagem Especial">
+  </div>
 
-        <!-- Card com imagem personalizada -->
-     
-        <div class="card" data-cover="igreja.png" data-title="" data-character="cronograma.png">
-            <div class="wrapper">
-              <img class="cover-image" />
-            </div>
-            <img class="title" />
-            <img class="character" />
-          </div>
-    </main>
-    <footer>
-        <p>Atenciosamente, Ministério de Acolhida do Movimento Jovem!</p>
-    </footer>
-   
-    <script src="script.js"></script>
+  <footer>
+    Siga-nos nas redes sociais: @Movimentojovem
+  </footer>
+
+  <script>
+    function confirmarPresenca() {
+      alert('Presença confirmada! Te esperamos na quinta-feira! 🙌');
+    }
+
+    function mostrarImagem() {
+      var img = document.getElementById("imagemRevelada");
+      img.style.display = "block";
+    }
+  </script>
 </body>
 </html>
