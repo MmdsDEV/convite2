@@ -201,7 +201,13 @@
         shape: { type: "circle" },
         opacity: {
           value: 0.8,
-          random: true
+          random: true,
+          anim: {
+            enable: true,
+            speed: 0.5,
+            opacity_min: 0.3,
+            sync: false
+          }
         },
         size: {
           value: 1.2,
