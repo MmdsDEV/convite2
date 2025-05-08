@@ -14,7 +14,7 @@
 
     body {
       font-family: 'Orbitron', sans-serif;
-      background: radial-gradient(ellipse at bottom, #0d1b2a 0%, #000000 100%);
+      background: #000;
       overflow: hidden;
       color: #ffffff;
       min-height: 100vh;
@@ -26,22 +26,15 @@
       position: relative;
     }
 
-    /* Fundo Estrelado */
-    .stars {
-      position: absolute;
+    #tsparticles {
+      position: fixed;
       width: 100%;
       height: 100%;
-      background: url('https://i.ibb.co/6s9KpR5/stars.png') repeat;
-      animation: moveStars 200s linear infinite;
       z-index: 0;
+      top: 0;
+      left: 0;
     }
 
-    @keyframes moveStars {
-      from { background-position: 0 0; }
-      to { background-position: -10000px 5000px; }
-    }
-
-    /* Foguete animado */
     .rocket {
       position: absolute;
       width: 60px;
@@ -153,7 +146,8 @@
   </style>
 </head>
 <body>
-  <div class="stars"></div>
+  <!-- Partículas no fundo -->
+  <div id="tsparticles"></div>
 
   <!-- Ícone de foguete -->
   <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/29/Flat_Ui_rocket.svg/1024px-Flat_Ui_rocket.svg.png" class="rocket" alt="Foguete voando">
@@ -170,22 +164,41 @@
     <p>🎤 Uma <span class="highlight">pregadora abençoada</span> estará conosco compartilhando a Palavra!</p>
     <button onclick="confirmarPresenca()">Confirmar Presença</button>
     <button onclick="mostrarImagem()">Ver Imagem Especial</button>
-    <img id="imagemRevelada" src="sua-imagem.jpg" alt="Imagem Especial">
+    <img id="imagemRevelada" src="mj.png" alt="Imagem Especial">
   </div>
 
   <footer>
     Siga-nos nas redes sociais: @Movimentojovem
   </footer>
 
+  <!-- Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/tsparticles@3.0.0/tsparticles.bundle.min.js"></script>
   <script>
     function confirmarPresenca() {
       alert('Presença confirmada! Te esperamos na quinta-feira! 🙌');
     }
 
     function mostrarImagem() {
-      var img = document.getElementById("imagemRevelada");
-      img.style.display = "block";
+      document.getElementById("imagemRevelada").style.display = "block";
     }
+
+    tsParticles.load("tsparticles", {
+      background: { color: "#000" },
+      fpsLimit: 60,
+      particles: {
+        number: { value: 100 },
+        color: { value: "#ffffff" },
+        shape: { type: "circle" },
+        opacity: { value: 0.8 },
+        size: { value: 1.5 },
+        move: {
+          enable: true,
+          speed: 0.3,
+          direction: "none",
+          outModes: { default: "bounce" }
+        }
+      }
+    });
   </script>
 </body>
 </html>
