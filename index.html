@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Resgatados - Grupo de Jovens</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&family=Pacifico&display=swap" rel="stylesheet">
   <style>
     * {
       margin: 0;
@@ -37,7 +37,7 @@
 
     .rocket {
       position: absolute;
-      width: 50px; /* Tamanho reduzido */
+      width: 50px;
       animation: float 5s ease-in-out infinite;
       top: 10%;
       right: 10%;
@@ -61,6 +61,18 @@
       z-index: 2;
       border: 2px solid #3b82f6;
       box-shadow: 0 0 25px #3b82f6;
+      backdrop-filter: blur(5px);
+      transition: transform 0.5s ease, opacity 0.5s ease;
+      opacity: 0;
+      transform: translateY(20px);
+      animation: fadeInUp 1s forwards;
+    }
+
+    @keyframes fadeInUp {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
     }
 
     h1 {
@@ -68,6 +80,7 @@
       color: #60a5fa;
       margin-bottom: 10px;
       text-shadow: 0 0 5px #3b82f6;
+      font-family: 'Pacifico', cursive;
     }
 
     h2 {
@@ -113,6 +126,13 @@
       max-width: 100%;
       border-radius: 10px;
       box-shadow: 0 0 20px rgba(147, 197, 253, 0.5);
+      opacity: 0;
+      transition: opacity 0.8s ease;
+    }
+
+    #imagemRevelada.mostrar {
+      display: block;
+      opacity: 1;
     }
 
     footer {
@@ -169,8 +189,10 @@
        📍 <strong>Comunidade Nossa Senhora Aparecida</strong><br>
        Avenida C, 212 - Setor Água Branca</p>
     <p>🎤 Uma <span class="highlight">pregadora abençoada</span> estará conosco compartilhando a Palavra!</p>
-    <button onclick="confirmarPresenca()">Confirmar Presença</button>
-    <button onclick="mostrarImagem()">Ver Imagem Especial</button>
+
+    <button onclick="confirmarPresenca()">✅ Confirmar Presença</button>
+    <button onclick="mostrarImagem()">🖼️ Ver Imagem Especial</button>
+
     <img id="imagemRevelada" src="moj.png" alt="Imagem Especial">
   </div>
 
@@ -185,7 +207,8 @@
     }
 
     function mostrarImagem() {
-      document.getElementById("imagemRevelada").style.display = "block";
+      const imagem = document.getElementById("imagemRevelada");
+      imagem.classList.add("mostrar");
     }
 
     tsParticles.load("tsparticles", {
