@@ -63,10 +63,26 @@
       border: 2px solid #3b82f6;
       box-shadow: 0 0 25px #3b82f6;
       backdrop-filter: blur(5px);
-      transition: transform 0.5s ease, opacity 0.5s ease;
+      overflow: hidden;
+    }
+
+    #stars-canvas {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 1;
+      pointer-events: none;
+      border-radius: 20px;
+    }
+
+    .overlay-content {
+      position: relative;
+      z-index: 2;
+      animation: fadeInUp 1s forwards;
       opacity: 0;
       transform: translateY(20px);
-      animation: fadeInUp 1s forwards;
     }
 
     @keyframes fadeInUp {
@@ -182,20 +198,23 @@
   <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/29/Flat_Ui_rocket.svg/1024px-Flat_Ui_rocket.svg.png" class="rocket" alt="Foguete flutuante">
 
   <div class="overlay">
-    <h1>🚀 Resgatados</h1>
-    <h2>"Lançai a rede" - João 21, 1-14</h2>
-    <p>Ao saltarem em terra, viram umas brasas preparadas e um peixe em cima delas,<br>
-       e pão. Disse-lhes Jesus: Trazei aqui alguns dos peixes que agora apanhastes</p>
-    <p>Venha viver uma noite <span class="highlight">inesquecível</span> com Deus e outros jovens como você!</p>
-    <p>📅 <strong>Quinta-feira às 20h00</strong><br>
-       📍 <strong>Comunidade Nossa Senhora Aparecida</strong><br>
-       Avenida C, 212 - Setor Água Branca</p>
-    <p>🎤 Uma <span class="highlight">pregadora abençoada</span> estará conosco compartilhando a Palavra!</p>
+    <canvas id="stars-canvas"></canvas>
+    <div class="overlay-content">
+      <h1>🚀 Resgatados</h1>
+      <h2>"Lançai a rede" - João 21, 1-14</h2>
+      <p>Ao saltarem em terra, viram umas brasas preparadas e um peixe em cima delas,<br>
+         e pão. Disse-lhes Jesus: Trazei aqui alguns dos peixes que agora apanhastes</p>
+      <p>Venha viver uma noite <span class="highlight">inesquecível</span> com Deus e outros jovens como você!</p>
+      <p>📅 <strong>Quinta-feira às 20h00</strong><br>
+         📍 <strong>Comunidade Nossa Senhora Aparecida</strong><br>
+         Avenida C, 212 - Setor Água Branca</p>
+      <p>🎤 Uma <span class="highlight">pregadora abençoada</span> estará conosco compartilhando a Palavra!</p>
 
-    <button onclick="confirmarPresenca()">✅ Confirmar Presença</button>
-    <button onclick="mostrarImagem()">🖼️ Ver Imagem Especial</button>
+      <button onclick="confirmarPresenca()">✅ Confirmar Presença</button>
+      <button onclick="mostrarImagem()">🖼️ Ver Imagem Especial</button>
 
-    <img id="imagemRevelada" src="moj.png" alt="Imagem Especial">
+      <img id="imagemRevelada" src="moj.png" alt="Imagem Especial">
+    </div>
   </div>
 
   <footer>
@@ -253,6 +272,47 @@
       },
       detectRetina: true
     });
+
+    // Estrelas brilhantes no fundo da .overlay
+    const canvas = document.getElementById('stars-canvas');
+    const ctx = canvas.getContext('2d');
+    const overlay = document.querySelector('.overlay');
+
+    function resizeCanvas() {
+      canvas.width = overlay.clientWidth;
+      canvas.height = overlay.clientHeight;
+    }
+
+    window.addEventListener('resize', resizeCanvas);
+    resizeCanvas();
+
+    const stars = [];
+    for (let i = 0; i < 100; i++) {
+      stars.push({
+        x: Math.random() * canvas.width,
+        y: Math.random() * canvas.height,
+        radius: Math.random() * 1.5,
+        alpha: Math.random(),
+        delta: 0.005 + Math.random() * 0.01
+      });
+    }
+
+    function animateStars() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      for (let star of stars) {
+        ctx.beginPath();
+        ctx.arc(star.x, star.y, star.radius, 0, Math.PI * 2);
+        ctx.fillStyle = `rgba(255, 255, 255, ${star.alpha})`;
+        ctx.fill();
+        star.alpha += star.delta;
+        if (star.alpha <= 0 || star.alpha >= 1) {
+          star.delta *= -1;
+        }
+      }
+      requestAnimationFrame(animateStars);
+    }
+
+    animateStars();
   </script>
 </body>
 </html>
