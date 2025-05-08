@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Resgatados - Grupo de Jovens</title>
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
   <style>
     * {
       margin: 0;
@@ -13,13 +13,10 @@
     }
 
     body {
-      font-family: 'Roboto', sans-serif;
-      background-color: #0b0f2a;
+      font-family: 'Orbitron', sans-serif;
+      background: radial-gradient(ellipse at bottom, #0d1b2a 0%, #000000 100%);
+      overflow: hidden;
       color: #ffffff;
-      background-image: url('78 Papel de Parede de Jesus – Personalize suas telas com fé.jpeg');
-      background-size: cover;
-      background-position: center;
-      background-repeat: no-repeat;
       min-height: 100vh;
       display: flex;
       flex-direction: column;
@@ -28,53 +25,73 @@
       padding: 20px;
     }
 
+    .stars {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      background: transparent url('https://i.ibb.co/6s9KpR5/stars.png') repeat;
+      animation: moveStars 200s linear infinite;
+      z-index: 0;
+    }
+
+    @keyframes moveStars {
+      from { background-position: 0 0; }
+      to { background-position: -10000px 5000px; }
+    }
+
     .overlay {
-      background-color: rgba(0, 0, 0, 0.7);
+      position: relative;
+      background-color: rgba(0, 0, 0, 0.8);
       padding: 30px;
       border-radius: 20px;
       max-width: 700px;
       width: 100%;
       text-align: center;
+      z-index: 1;
+      border: 2px solid #00ffff;
+      box-shadow: 0 0 20px #00ffff;
     }
 
     h1 {
-      font-size: 2.5rem;
-      color: #FFD700;
+      font-size: 2.8rem;
+      color: #00ffff;
       margin-bottom: 10px;
     }
 
     h2 {
-      font-size: 1.3rem;
-      color: #ccc;
-      margin-bottom: 25px;
+      font-size: 1.4rem;
+      color: #fff;
+      margin-bottom: 20px;
     }
 
     p {
       font-size: 1rem;
       line-height: 1.6;
-      margin-bottom: 20px;
+      margin-bottom: 15px;
     }
 
     .highlight {
-      color: #00BFFF;
+      color: #FFD700;
       font-weight: bold;
     }
 
     button {
-      background-color: #FFD700;
-      color: #0b0f2a;
+      background-color: #00ffff;
+      color: #000;
       font-weight: bold;
       border: none;
       padding: 12px 24px;
       border-radius: 30px;
       cursor: pointer;
       font-size: 1rem;
-      transition: background 0.3s ease;
+      transition: all 0.3s ease;
       margin: 10px;
+      box-shadow: 0 0 10px #00ffff;
     }
 
     button:hover {
-      background-color: #e6c200;
+      background-color: #00cccc;
+      transform: scale(1.05);
     }
 
     #imagemRevelada {
@@ -90,7 +107,7 @@
       font-size: 0.9rem;
       color: #bbb;
       text-align: center;
-      padding: 10px;
+      z-index: 1;
     }
 
     @media (max-width: 600px) {
@@ -119,8 +136,10 @@
   </style>
 </head>
 <body>
+  <div class="stars"></div>
+
   <div class="overlay">
-    <h1>Resgatados</h1>
+    <h1>🚀 Resgatados</h1>
     <h2>"Lançai a rede" - João 21, 1-14</h2>
     <p>Ao saltarem em terra, viram umas brasas preparadas e um peixe em cima delas,<br>
        e pão. Disse-lhes Jesus: Trazei aqui alguns dos peixes que agora apanhastes</p>
@@ -131,7 +150,7 @@
     <p>🎤 Uma <span class="highlight">pregadora abençoada</span> estará conosco compartilhando a Palavra!</p>
     <button onclick="confirmarPresenca()">Confirmar Presença</button>
     <button onclick="mostrarImagem()">Ver Imagem Especial</button>
-    <img id="moj.jpeg" alt="Imagem Especial">
+    <img id="imagemRevelada" src="sua-imagem.jpg" alt="Imagem Especial">
   </div>
 
   <footer>
