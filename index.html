@@ -1,204 +1,212 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Resgatados - Grupo de Jovens</title>
-  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Resgatados - Grupo de Jovens</title>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-    body {
-      font-family: 'Orbitron', sans-serif;
-      background: linear-gradient(to bottom right, #0a0f30, #1b144a);
-      color: #e2e8f0;
-      overflow: hidden;
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      padding: 20px;
-      position: relative;
-    }
+    body {
+      font-family: 'Orbitron', sans-serif;
+      background: linear-gradient(to bottom right, #0a0f30, #1b144a);
+      color: #e2e8f0;
+      overflow-x: hidden;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      position: relative;
+    }
 
-    #tsparticles {
-      position: fixed;
-      width: 100%;
-      height: 100%;
-      z-index: 0;
-      top: 0;
-      left: 0;
-    }
+    #tsparticles {
+      position: fixed;
+      width: 100%;
+      height: 100%;
+      z-index: 0;
+      top: 0;
+      left: 0;
+    }
 
-    .rocket {
-      position: absolute;
-      width: 60px;
-      animation: float 6s ease-in-out infinite;
-      top: 10%;
-      left: 10%;
-      z-index: 1;
-      filter: drop-shadow(0 0 5px #5eead4);
-    }
+    .rocket {
+      position: absolute;
+      width: 60px;
+      animation: float 6s ease-in-out infinite;
+      top: 10%;
+      left: 10%;
+      z-index: 1;
+      filter: drop-shadow(0 0 5px #5eead4);
+    }
 
-    @keyframes float {
-      0%, 100% { transform: translateY(0) rotate(-15deg); }
-      50% { transform: translateY(-20px) rotate(5deg); }
-    }
+    @keyframes float {
+      0%, 100% { transform: translateY(0) rotate(-15deg); }
+      50% { transform: translateY(-20px) rotate(5deg); }
+    }
 
-    .overlay {
-      position: relative;
-      background-color: rgba(17, 24, 39, 0.85); /* azul profundo */
-      padding: 30px;
-      border-radius: 20px;
-      max-width: 700px;
-      width: 100%;
-      text-align: center;
-      z-index: 2;
-      border: 2px solid #3b82f6;
-      box-shadow: 0 0 25px #3b82f6;
-    }
+    .overlay {
+      position: relative;
+      background-color: rgba(17, 24, 39, 0.85);
+      padding: 30px;
+      border-radius: 20px;
+      max-width: 700px;
+      width: 100%;
+      text-align: center;
+      z-index: 2;
+      border: 2px solid #3b82f6;
+      box-shadow: 0 0 25px #3b82f6;
+    }
 
-    h1 {
-      font-size: 2.8rem;
-      color: #60a5fa;
-      margin-bottom: 10px;
-      text-shadow: 0 0 5px #3b82f6;
-    }
+    h1 {
+      font-size: 2.5rem;
+      color: #60a5fa;
+      margin-bottom: 10px;
+      text-shadow: 0 0 5px #3b82f6;
+    }
 
-    h2 {
-      font-size: 1.4rem;
-      color: #cbd5e1;
-      margin-bottom: 20px;
-    }
+    h2 {
+      font-size: 1.2rem;
+      color: #cbd5e1;
+      margin-bottom: 20px;
+    }
 
-    p {
-      font-size: 1rem;
-      line-height: 1.6;
-      margin-bottom: 15px;
-      color: #dbeafe;
-    }
+    p {
+      font-size: 1rem;
+      line-height: 1.6;
+      margin-bottom: 15px;
+      color: #dbeafe;
+    }
 
-    .highlight {
-      color: #93c5fd;
-      font-weight: bold;
-    }
+    .highlight {
+      color: #93c5fd;
+      font-weight: bold;
+    }
 
-    button {
-      background-color: #3b82f6;
-      color: #0f172a;
-      font-weight: bold;
-      border: none;
-      padding: 12px 24px;
-      border-radius: 30px;
-      cursor: pointer;
-      font-size: 1rem;
-      transition: all 0.3s ease;
-      margin: 10px;
-      box-shadow: 0 0 15px #60a5fa;
-    }
+    button {
+      background-color: #3b82f6;
+      color: #0f172a;
+      font-weight: bold;
+      border: none;
+      padding: 12px 24px;
+      border-radius: 30px;
+      cursor: pointer;
+      font-size: 1rem;
+      transition: all 0.3s ease;
+      margin: 10px;
+      box-shadow: 0 0 15px #60a5fa;
+    }
 
-    button:hover {
-      background-color: #2563eb;
-      transform: scale(1.05);
-    }
+    button:hover {
+      background-color: #2563eb;
+      transform: scale(1.05);
+    }
 
-    #imagemRevelada {
-      display: none;
-      margin-top: 20px;
-      max-width: 100%;
-      border-radius: 10px;
-      box-shadow: 0 0 20px rgba(147, 197, 253, 0.5);
-    }
+    #imagemRevelada {
+      display: none;
+      margin-top: 20px;
+      width: 100%;
+      max-width: 100%;
+      border-radius: 10px;
+      box-shadow: 0 0 20px rgba(147, 197, 253, 0.5);
+    }
 
-    footer {
-      margin-top: 30px;
-      font-size: 0.9rem;
-      color: #94a3b8;
-      text-align: center;
-      z-index: 2;
-    }
+    footer {
+      margin-top: 30px;
+      font-size: 0.9rem;
+      color: #94a3b8;
+      text-align: center;
+      z-index: 2;
+    }
 
-    @media (max-width: 600px) {
-      .overlay {
-        padding: 20px;
-      }
+    @media (max-width: 600px) {
+      .overlay {
+        padding: 20px;
+      }
 
-      h1 {
-        font-size: 2rem;
-      }
+      h1 {
+        font-size: 1.8rem;
+      }
 
-      h2 {
-        font-size: 1.1rem;
-      }
+      h2 {
+        font-size: 1rem;
+      }
 
-      p {
-        font-size: 0.95rem;
-      }
+      p {
+        font-size: 0.95rem;
+      }
 
-      button {
-        width: 100%;
-        font-size: 1rem;
-        padding: 12px;
-      }
-    }
-  </style>
+      button {
+        width: 100%;
+        font-size: 1rem;
+        padding: 12px;
+        margin: 5px 0;
+      }
+
+      .rocket {
+        width: 45px;
+        top: 5%;
+        left: 5%;
+      }
+    }
+  </style>
 </head>
 <body>
-  <div id="tsparticles"></div>
+  <div id="tsparticles"></div>
 
-  <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/29/Flat_Ui_rocket.svg/1024px-Flat_Ui_rocket.svg.png" class="rocket" alt="Foguete voando">
+  <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/29/Flat_Ui_rocket.svg/1024px-Flat_Ui_rocket.svg.png" class="rocket" alt="Foguete voando">
 
-  <div class="overlay">
-    <h1>🚀 Resgatados</h1>
-    <h2>"Lançai a rede" - João 21, 1-14</h2>
-    <p>Ao saltarem em terra, viram umas brasas preparadas e um peixe em cima delas,<br>
-       e pão. Disse-lhes Jesus: Trazei aqui alguns dos peixes que agora apanhastes</p>
-    <p>Venha viver uma noite <span class="highlight">inesquecível</span> com Deus e outros jovens como você!</p>
-    <p>📅 <strong>Quinta-feira às 20h00</strong><br>
-       📍 <strong>Comunidade Nossa Senhora Aparecida</strong><br>
-       Avenida C, 212 - Setor Água Branca</p>
-    <p>🎤 Uma <span class="highlight">pregadora abençoada</span> estará conosco compartilhando a Palavra!</p>
-    <button onclick="confirmarPresenca()">Confirmar Presença</button>
-    <button onclick="mostrarImagem()">Ver Imagem Especial</button>
-    <img id="imagemRevelada" src="moj.png" alt="Imagem Especial">
-  </div>
+  <div class="overlay">
+    <h1>🚀 Resgatados</h1>
+    <h2>"Lançai a rede" - João 21, 1-14</h2>
+    <p>Ao saltarem em terra, viram umas brasas preparadas e um peixe em cima delas,<br>
+       e pão. Disse-lhes Jesus: Trazei aqui alguns dos peixes que agora apanhastes</p>
+    <p>Venha viver uma noite <span class="highlight">inesquecível</span> com Deus e outros jovens como você!</p>
+    <p>📅 <strong>Quinta-feira às 20h00</strong><br>
+       📍 <strong>Comunidade Nossa Senhora Aparecida</strong><br>
+       Avenida C, 212 - Setor Água Branca</p>
+    <p>🎤 Uma <span class="highlight">pregadora abençoada</span> estará conosco compartilhando a Palavra!</p>
+    <button onclick="confirmarPresenca()">Confirmar Presença</button>
+    <button onclick="mostrarImagem()">Ver Imagem Especial</button>
+    <img id="imagemRevelada" src="moj.png" alt="Imagem Especial">
+  </div>
 
-  <footer>
-    Siga-nos nas redes sociais: @Movimentojovem
-  </footer>
+  <footer>
+    Siga-nos nas redes sociais: @Movimentojovem
+  </footer>
 
-  <script src="https://cdn.jsdelivr.net/npm/tsparticles@3.0.0/tsparticles.bundle.min.js"></script>
-  <script>
-    function confirmarPresenca() {
-      alert('Presença confirmada! Te esperamos na quinta-feira! 🙌');
-    }
+  <script src="https://cdn.jsdelivr.net/npm/tsparticles@3.0.0/tsparticles.bundle.min.js"></script>
+  <script>
+    function confirmarPresenca() {
+      alert('Presença confirmada! Te esperamos na quinta-feira! 🙌');
+    }
 
-    function mostrarImagem() {
-      document.getElementById("imagemRevelada").style.display = "block";
-    }
+    function mostrarImagem() {
+      document.getElementById("imagemRevelada").style.display = "block";
+    }
 
-    tsParticles.load("tsparticles", {
-      background: { color: "#0a0f30" },
-      fpsLimit: 60,
-      particles: {
-        number: { value: 100 },
-        color: { value: "#93c5fd" },
-        shape: { type: "circle" },
-        opacity: { value: 0.7 },
-        size: { value: 1.5 },
-        move: {
-          enable: true,
-          speed: 0.3,
-          direction: "none",
-          outModes: { default: "bounce" }
-        }
-      }
-    });
-  </script>
+    tsParticles.load("tsparticles", {
+      background: { color: "#0a0f30" },
+      fpsLimit: 60,
+      particles: {
+        number: { value: 100 },
+        color: { value: "#93c5fd" },
+        shape: { type: "circle" },
+        opacity: { value: 0.7 },
+        size: { value: 1.5 },
+        move: {
+          enable: true,
+          speed: 0.3,
+          direction: "none",
+          outModes: { default: "bounce" }
+        }
+      }
+    });
+  </script>
 </body>
 </html>
