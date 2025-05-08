@@ -37,7 +37,7 @@
 
     .rocket {
       position: absolute;
-      width: 80px;
+      width: 50px; /* Tamanho reduzido */
       animation: float 5s ease-in-out infinite;
       top: 10%;
       right: 10%;
@@ -147,7 +147,7 @@
       }
 
       .rocket {
-        width: 60px;
+        width: 40px;
         right: 5%;
         top: 5%;
       }
@@ -189,21 +189,38 @@
     }
 
     tsParticles.load("tsparticles", {
+      fullScreen: { enable: false },
       background: { color: "#0a0f30" },
       fpsLimit: 60,
       particles: {
-        number: { value: 100 },
-        color: { value: "#93c5fd" },
+        number: {
+          value: 300,
+          density: { enable: true, area: 800 }
+        },
+        color: { value: "#ffffff" },
         shape: { type: "circle" },
-        opacity: { value: 0.7 },
-        size: { value: 1.5 },
+        opacity: {
+          value: 0.8,
+          random: true
+        },
+        size: {
+          value: 1.2,
+          random: true
+        },
         move: {
           enable: true,
-          speed: 0.3,
+          speed: 0.2,
           direction: "none",
-          outModes: { default: "bounce" }
+          outModes: { default: "out" }
         }
-      }
+      },
+      interactivity: {
+        events: {
+          onHover: { enable: false },
+          onClick: { enable: false }
+        }
+      },
+      detectRetina: true
     });
   </script>
 </body>
