@@ -23,13 +23,15 @@
       align-items: center;
       justify-content: center;
       padding: 20px;
+      position: relative;
     }
 
+    /* Fundo Estrelado */
     .stars {
       position: absolute;
       width: 100%;
       height: 100%;
-      background: transparent url('https://i.ibb.co/6s9KpR5/stars.png') repeat;
+      background: url('https://i.ibb.co/6s9KpR5/stars.png') repeat;
       animation: moveStars 200s linear infinite;
       z-index: 0;
     }
@@ -37,6 +39,21 @@
     @keyframes moveStars {
       from { background-position: 0 0; }
       to { background-position: -10000px 5000px; }
+    }
+
+    /* Foguete animado */
+    .rocket {
+      position: absolute;
+      width: 60px;
+      animation: float 6s ease-in-out infinite;
+      top: 10%;
+      left: 10%;
+      z-index: 1;
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0) rotate(-15deg); }
+      50% { transform: translateY(-20px) rotate(5deg); }
     }
 
     .overlay {
@@ -47,7 +64,7 @@
       max-width: 700px;
       width: 100%;
       text-align: center;
-      z-index: 1;
+      z-index: 2;
       border: 2px solid #00ffff;
       box-shadow: 0 0 20px #00ffff;
     }
@@ -107,7 +124,7 @@
       font-size: 0.9rem;
       color: #bbb;
       text-align: center;
-      z-index: 1;
+      z-index: 2;
     }
 
     @media (max-width: 600px) {
@@ -137,6 +154,9 @@
 </head>
 <body>
   <div class="stars"></div>
+
+  <!-- Ícone de foguete -->
+  <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/29/Flat_Ui_rocket.svg/1024px-Flat_Ui_rocket.svg.png" class="rocket" alt="Foguete voando">
 
   <div class="overlay">
     <h1>🚀 Resgatados</h1>
