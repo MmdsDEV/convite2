@@ -1,318 +1,45 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Resgatados - Grupo de Jovens</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&family=Pacifico&display=swap" rel="stylesheet">
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    body {
-      font-family: 'Poppins', sans-serif;
-      background: linear-gradient(to bottom right, #0a0f30, #1b144a);
-      color: #e2e8f0;
-      overflow-x: hidden;
-      overflow-y: auto;
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      padding: 20px;
-      position: relative;
-    }
-
-    #tsparticles {
-      position: fixed;
-      width: 100%;
-      height: 100%;
-      z-index: 0;
-      top: 0;
-      left: 0;
-    }
-
-    .rocket {
-      position: absolute;
-      width: 50px;
-      animation: float 5s ease-in-out infinite;
-      top: 10%;
-      right: 10%;
-      z-index: 1;
-      filter: drop-shadow(0 0 8px #5eead4);
-    }
-
-    @keyframes float {
-      0%, 100% { transform: translateY(0) rotate(-5deg); }
-      50% { transform: translateY(-25px) rotate(5deg); }
-    }
-
-    .overlay {
-      position: relative;
-      background-color: rgba(17, 24, 39, 0.85);
-      padding: 30px;
-      border-radius: 20px;
-      max-width: 700px;
-      width: 100%;
-      text-align: center;
-      z-index: 2;
-      border: 2px solid #3b82f6;
-      box-shadow: 0 0 25px #3b82f6;
-      backdrop-filter: blur(5px);
-      overflow: hidden;
-    }
-
-    #stars-canvas {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      z-index: 1;
-      pointer-events: none;
-      border-radius: 20px;
-    }
-
-    .overlay-content {
-      position: relative;
-      z-index: 2;
-      animation: fadeInUp 1s forwards;
-      opacity: 0;
-      transform: translateY(20px);
-    }
-
-    @keyframes fadeInUp {
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
-    h1 {
-      font-size: 2.8rem;
-      color: #60a5fa;
-      margin-bottom: 10px;
-      text-shadow: 0 0 5px #3b82f6;
-      font-family: 'Pacifico', cursive;
-    }
-
-    h2 {
-      font-size: 1.4rem;
-      color: #cbd5e1;
-      margin-bottom: 20px;
-    }
-
-    p {
-      font-size: 1rem;
-      line-height: 1.6;
-      margin-bottom: 15px;
-      color: #dbeafe;
-    }
-
-    .highlight {
-      color: #93c5fd;
-      font-weight: bold;
-    }
-
-    button {
-      background-color: #3b82f6;
-      color: #0f172a;
-      font-weight: bold;
-      border: none;
-      padding: 12px 24px;
-      border-radius: 30px;
-      cursor: pointer;
-      font-size: 1rem;
-      transition: all 0.3s ease;
-      margin: 10px;
-      box-shadow: 0 0 15px #60a5fa;
-    }
-
-    button:hover {
-      background-color: #2563eb;
-      transform: scale(1.05);
-    }
-
-    #imagemRevelada {
-      display: none;
-      margin-top: 20px;
-      max-width: 100%;
-      height: auto;
-      border-radius: 10px;
-      box-shadow: 0 0 20px rgba(147, 197, 253, 0.5);
-      opacity: 0;
-      transition: opacity 0.8s ease;
-    }
-
-    #imagemRevelada.mostrar {
-      display: block;
-      opacity: 1;
-    }
-
-    footer {
-      margin-top: 30px;
-      font-size: 0.9rem;
-      color: #94a3b8;
-      text-align: center;
-      z-index: 2;
-    }
-
-    @media (max-width: 600px) {
-      .overlay {
-        padding: 20px;
-      }
-
-      h1 {
-        font-size: 2rem;
-      }
-
-      h2 {
-        font-size: 1.1rem;
-      }
-
-      p {
-        font-size: 0.95rem;
-      }
-
-      button {
-        width: 100%;
-        font-size: 1rem;
-        padding: 12px;
-      }
-
-      .rocket {
-        width: 40px;
-        right: 5%;
-        top: 5%;
-      }
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Convite Especial</title>
+    <link rel="icon" type="image/png" href="mjlogo.png">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Annie+Use+Your+Telescope&family=Petemoss&family=Roboto:ital,wght@0,100..900;1,100..900&family=Shantell+Sans:ital,wght@0,300..800;1,300..800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <div id="tsparticles"></div>
+    <div class="envelope">
+        <div class="envelope-lid"></div>
+        <div class="envelope-lid envelope-lid-secondary"></div>
+        <div class="card-wrapper">
+            <div class="card">
+                <div class="card-cover">
+                    <div class="card-side card-side-primary">
+                        <h1 class="card-title">
+                            <span class="card-title-secondary">Convite</span>
+                            <span class="card-title-main">Para Voce <span
+                                    class="card-title-apostrophe">✨</span>
+                            <span class="card-title-secondary">MJ</span>
+                        </h1>
+                    </div>
+                    <div class="card-side card-side-secondary"></div>
+                </div>
+                <div class="card-body">
+                    <p>"Mt 20, 1-16 - A parábola dos trabalhadores na vinha"</p>
+                    <p>CADA CHAMADO É ÚNICO,<br>A RECOMPENSA É A MESMA.
+                        Deus nos chama em diferentes momentos e de formas únicas, mas sua graça e amor são oferecidos a todos igualmente.
+                    </p>
+                    <p>Sua presença será um grande presente! Venha compartilhar deste momento de fé e reflexão.</p>
+                </div>
+            </div>
+        </div>
+        <div class="heart-seal"></div> </div>
 
-  <img src="foguete.png" class="rocket" alt="Foguete flutuante">
-
-  <div class="overlay">
-    <canvas id="stars-canvas"></canvas>
-    <div class="overlay-content">
-      <h1>🚀 Resgatados</h1>
-      <h2>"Lançai a rede" - João 21, 1-14</h2>
-      <p>Ao saltarem em terra, viram umas brasas preparadas e um peixe em cima delas,<br>
-         e pão. Disse-lhes Jesus: Trazei aqui alguns dos peixes que agora apanhastes</p>
-      <p>Venha viver uma noite <span class="highlight">inesquecível</span> com Deus e outros jovens como você!</p>
-      <p>📅 <strong>Quinta-feira às 20h00</strong><br>
-         📍 <strong>Comunidade Nossa Senhora Aparecida</strong><br>
-         Avenida C, 212 - Setor Água Branca</p>
-      <p>🎤 Uma <span class="highlight">pregadora abençoada</span> estará conosco compartilhando a Palavra!</p>
-
-      <button onclick="confirmarPresenca()">✅ Confirmar Presença</button>
-      <button onclick="mostrarImagem()">🖼️ Ver Imagem Especial</button>
-
-      <img id="imagemRevelada" src="moj.png" alt="Imagem Especial">
-    </div>
-  </div>
-
-  <footer>
-    Siga-nos nas redes sociais: @Movimentojovem
-  </footer>
-
-  <script src="https://cdn.jsdelivr.net/npm/tsparticles@3.0.0/tsparticles.bundle.min.js"></script>
-  <script>
-    function confirmarPresenca() {
-      alert('Presença confirmada! Te esperamos na quinta-feira! 🙌');
-    }
-
-    function mostrarImagem() {
-      const imagem = document.getElementById("imagemRevelada");
-      imagem.classList.add("mostrar");
-    }
-
-    tsParticles.load("tsparticles", {
-      fullScreen: { enable: false },
-      background: { color: "#0a0f30" },
-      fpsLimit: 60,
-      particles: {
-        number: {
-          value: 300,
-          density: { enable: true, area: 800 }
-        },
-        color: { value: "#ffffff" },
-        shape: { type: "circle" },
-        opacity: {
-          value: 0.8,
-          random: true,
-          anim: {
-            enable: true,
-            speed: 0.5,
-            opacity_min: 0.3,
-            sync: false
-          }
-        },
-        size: {
-          value: 1.2,
-          random: true
-        },
-        move: {
-          enable: true,
-          speed: 0.2,
-          direction: "none",
-          outModes: { default: "out" }
-        }
-      },
-      interactivity: {
-        events: {
-          onHover: { enable: false },
-          onClick: { enable: false }
-        }
-      },
-      detectRetina: true
-    });
-
-    // Estrelas brilhantes no fundo da .overlay
-    const canvas = document.getElementById('stars-canvas');
-    const ctx = canvas.getContext('2d');
-    const overlay = document.querySelector('.overlay');
-
-    function resizeCanvas() {
-      canvas.width = overlay.clientWidth;
-      canvas.height = overlay.clientHeight;
-    }
-
-    window.addEventListener('resize', resizeCanvas);
-    resizeCanvas();
-
-    const stars = [];
-    for (let i = 0; i < 100; i++) {
-      stars.push({
-        x: Math.random() * canvas.width,
-        y: Math.random() * canvas.height,
-        radius: Math.random() * 1.5,
-        alpha: Math.random(),
-        delta: 0.005 + Math.random() * 0.01
-      });
-    }
-
-    function animateStars() {
-      ctx.clearRect(0, 0, canvas.width, canvas.height);
-      for (let star of stars) {
-        ctx.beginPath();
-        ctx.arc(star.x, star.y, star.radius, 0, Math.PI * 2);
-        ctx.fillStyle = `rgba(255, 255, 255, ${star.alpha})`;
-        ctx.fill();
-        star.alpha += star.delta;
-        if (star.alpha <= 0 || star.alpha >= 1) {
-          star.delta *= -1;
-        }
-      }
-      requestAnimationFrame(animateStars);
-    }
-
-    animateStars();
-  </script>
+       <script  src="script.js"></script>
 </body>
 </html>
+
+
